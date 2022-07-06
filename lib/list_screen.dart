@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/detail_screen.dart';
 import 'package:flutter_demo/identity.dart';
 
 class ListScreen extends StatelessWidget {
@@ -6,78 +7,131 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bulan = [
-      "Januari",
-      "Fabruari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
-      "September",
-      "Oktober",
-      "November",
-      "Desember"
-    ];
-
-    String nama = "";
-    var listName = <String>[];
-    listName.addAll(bulan);
-
     List<Identity> dataIden = [];
     dataIden.add(Identity(
-        nama: "Sandi", alamat: "jakarta", umur: "26", status: "Menikah"));
+        nama: "Sandi",
+        alamat:
+            "Jalan Terusan CCI 8 No. 5 Mekarrahayu, Margaasih Kabupaten Bandung",
+        umur: "26",
+        status: "Menikah"));
     dataIden.add(Identity(
-        nama: "Putra", alamat: "jakarta", umur: "26", status: "Menikah"));
+        nama: "Putra",
+        alamat:
+            "Jalan Kemandoran Raya No 47, Grogol Utara, Kebayoran Lama, Jakarta Barat",
+        umur: "26",
+        status: "Menikah"));
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('List'),
+          leading: Icon(Icons.menu),
+          actions: <Widget>[
+            IconButton(
+                onPressed: () {
+                  _showToast(context, "Penambahan");
+                },
+                icon: const Icon(Icons.add, color: Colors.white)),
+            IconButton(
+                onPressed: () {
+                  _showToast(context, "Alarm");
+                },
+                icon: Icon(
+                  Icons.access_alarms,
+                  color: Colors.white,
+                ))
+          ],
         ),
         body: SizedBox(
           height: double.infinity,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
+              return GestureDetector(
+                  onTap: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DetailScreen()))
+                      },
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
                         children: <Widget>[
-                          Container(
-                            width: 70,
-                            child: Text("Nama"),
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                width: 70,
+                                child: Text("Nama"),
+                              ),
+                              Container(
+                                  child: Flexible(
+                                child: Text(
+                                  ": ${dataIden[index].nama}",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.visible,
+                                  style: const TextStyle(
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                              ))
+                            ],
                           ),
-                          Text(": ${dataIden[index].nama}")
+                          Row(
+                            children: <Widget>[
+                              const SizedBox(
+                                width: 70,
+                                child: Text("Alamat"),
+                              ),
+                              Container(
+                                  child: Flexible(
+                                child: Text(
+                                  ": ${dataIden[index].alamat}",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.visible,
+                                  style: const TextStyle(
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                              ))
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                width: 70,
+                                child: Text("Umur"),
+                              ),
+                              Container(
+                                  child: Flexible(
+                                child: Text(
+                                  ": ${dataIden[index].umur}",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.visible,
+                                  style: const TextStyle(
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                              ))
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 70,
-                            child: Text("Alamat"),
-                          ),
-                          Text(": ${dataIden[index].alamat}")
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 70,
-                            child: Text("Umur"),
-                          ),
-                          Text(": ${dataIden[index].umur}")
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
+                    ),
+                  ));
             },
             itemCount: dataIden.length,
           ),
         ));
+  }
+
+  void _showToast(BuildContext context, String message) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+            label: 'Dismiss', onPressed: scaffold.hideCurrentSnackBar),
+      ),
+    );
   }
 }
