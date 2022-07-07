@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/detail_screen.dart';
-import 'package:flutter_demo/identity.dart';
 import 'package:flutter_demo/list_screen.dart';
+import 'package:flutter_demo/nav-drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedNavbar = 0;
   final tabs = [
     const DetailScreen(),
@@ -29,11 +30,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+        key: _scaffoldKey,
+        drawer: DrawerWidget(),
         appBar: AppBar(
-          title: const Text('List'),
-          leading: const Icon(Icons.menu),
+          title: const Text('Dashboard'),
+          leading: IconButton(
+            icon: const Icon(Icons.menu), onPressed: () {
+              _scaffoldKey.currentState?.openDrawer();
+          },
+          ),
           actions: <Widget>[
             IconButton(
                 onPressed: () {
@@ -51,25 +57,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: "Home", tooltip: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.assessment),
-                label: "Assessment",
-                tooltip: "Assessment"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.mail), label: "Mail", tooltip: "Mail"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: "Settings",
-                tooltip: "Settings"),
-          ],
-          currentIndex: _selectedNavbar,
-          selectedItemColor: Colors.green,
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: true,
-          onTap: _changeSelectedNavBar
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home), label: "Home", tooltip: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.assessment),
+                  label: "Assessment",
+                  tooltip: "Assessment"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.mail), label: "Mail", tooltip: "Mail"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: "Settings",
+                  tooltip: "Settings"),
+            ],
+            currentIndex: _selectedNavbar,
+            selectedItemColor: Colors.green,
+            unselectedItemColor: Colors.grey,
+            showUnselectedLabels: true,
+            type: BottomNavigationBarType.fixed,
+            onTap: _changeSelectedNavBar
         ),
         body: tabs[_selectedNavbar]
     );
