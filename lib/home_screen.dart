@@ -83,7 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
             type: BottomNavigationBarType.fixed,
             onTap: _changeSelectedNavBar
         ),
-        body: tabs[_selectedNavbar]
+        body: IndexedStack(
+          children: [
+            tabs[_selectedNavbar]
+          ],
+        )
     ));
   }
 

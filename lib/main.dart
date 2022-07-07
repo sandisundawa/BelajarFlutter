@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   onPressed: () {
                     if (usernameController.text.isNotEmpty && passwordController.text.isNotEmpty) {
-                      print(usernameController.text + " dan " + passwordController.text);
+                      print("${usernameController.text} dan ${passwordController.text}");
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const HomeScreen()),
