@@ -14,6 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedNavbar = 0;
+  bool canback = false;
+
   final tabs = [
     const DetailScreen(),
     const ListScreen(),
@@ -30,14 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(onWillPop: () async {
+      return true;
+    },
+    child: Scaffold(
         key: _scaffoldKey,
-        drawer: DrawerWidget(),
+        drawer: const DrawerWidget(),
         appBar: AppBar(
           title: const Text('Dashboard'),
           leading: IconButton(
             icon: const Icon(Icons.menu), onPressed: () {
-              _scaffoldKey.currentState?.openDrawer();
+            _scaffoldKey.currentState?.openDrawer();
           },
           ),
           actions: <Widget>[
@@ -79,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: _changeSelectedNavBar
         ),
         body: tabs[_selectedNavbar]
-    );
+    ));
   }
 
   void _showToast(BuildContext context, String message) {

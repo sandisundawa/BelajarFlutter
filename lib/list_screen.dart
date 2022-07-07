@@ -26,8 +26,11 @@ class _ListScreenState extends State<ListScreen> {
         nama: "Putra",
         alamat:
         "Jalan Kemandoran Raya No 47, Grogol Utara, Kebayoran Lama, Jakarta Barat",
-        umur: "26",
+        umur: "24",
         status: "Menikah"));
+
+    List<Identity> filtered = [];
+    filtered = dataIden.where((element) => element.umur == "24").toList();
 
     return Scaffold(
         body: Padding(
