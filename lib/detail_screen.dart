@@ -16,22 +16,22 @@ class _DetailScreenState extends State<DetailScreen> {
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxScrolled) {
             return <Widget>[
-              const SliverAppBar(
-                expandedHeight: 300,
-                floating: false,
-                pinned: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  title: Text(
-                    "Detail Data PLN Ams",
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 16),
-                  ),
-                  background: Image(
-                    image: AssetImage('assets/pln.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+              // const SliverAppBar(
+              //   expandedHeight: 300,
+              //   floating: false,
+              //   pinned: true,
+              //   flexibleSpace: FlexibleSpaceBar(
+              //     centerTitle: true,
+              //     title: Text(
+              //       "Detail Data PLN Ams",
+              //       style: TextStyle(color: Colors.blueGrey, fontSize: 12),
+              //     ),
+              //     background: Image(
+              //       image: AssetImage('assets/pln.png'),
+              //       fit: BoxFit.cover,
+              //     ),
+              //   ),
+              // ),
               SliverPadding(
                 padding: EdgeInsets.all(16),
                 sliver: SliverList(
