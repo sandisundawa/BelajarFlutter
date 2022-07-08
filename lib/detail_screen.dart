@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/kantor_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class _DetailScreenState extends State<DetailScreen> {
   int _selectedTab = 0;
 
   final tabs = [
-    Center(child: Text("Kantor")),
+    KantorScreen(),
     Center(child: Text("Admin")),
   ];
 

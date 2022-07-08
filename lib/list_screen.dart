@@ -48,6 +48,7 @@ class _ListScreenState extends State<ListScreen> {
                               builder: (context) => const DetailScreen()))
                     },
                     child: Card(
+                      margin: EdgeInsets.only(top: 16),
                       child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: Column(

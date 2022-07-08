@@ -33,7 +33,30 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop: () async {
-      return true;
+      final shouldPop = await showDialog<bool>(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Do you want Exit?'),
+            actionsAlignment: MainAxisAlignment.spaceBetween,
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                },
+                child: const Text('Yes'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, false);
+                },
+                child: const Text('No'),
+              ),
+            ],
+          );
+        },
+      );
+      return shouldPop!;
     },
     child: Scaffold(
         key: _scaffoldKey,
@@ -96,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
     scaffold.showSnackBar(
       SnackBar(
         content: Text(message),
+        duration: const Duration(seconds: 4),
         action: SnackBarAction(
             label: 'Dismiss', onPressed: scaffold.hideCurrentSnackBar),
       ),
