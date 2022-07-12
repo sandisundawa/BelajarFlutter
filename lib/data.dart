@@ -1,15 +1,15 @@
 class Data {
-  final int id;
-  final String first_name;
-  final String last_name;
-  final String email;
-  final String avatar;
+  int? id;
+  String? first_name;
+  String? last_name;
+  String? email;
+  String? avatar;
 
-  const Data({required this.id,
-    required this.first_name,
-    required this.last_name,
-    required this.email,
-    required this.avatar});
+  Data({this.id,
+    this.first_name,
+    this.last_name,
+    this.email,
+    this.avatar});
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(id: json['id'],

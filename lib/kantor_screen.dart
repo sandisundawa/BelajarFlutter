@@ -54,7 +54,7 @@ class _KantorScreenState extends State<KantorScreen> {
                           NetworkImage(snapshot.data?.data[index].avatar ?? ""),
                     ),
                     title: Text("${snapshot.data!.data[index].first_name} "),
-                    subtitle: Text(snapshot.data!.data[index].email),
+                    subtitle: Text(snapshot.data!.data[index].email ?? ""),
                   );
                 });
           } else {
