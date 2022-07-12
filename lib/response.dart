@@ -1,11 +1,11 @@
 import 'data.dart';
 
 class Response {
-  final int page;
-  final int total;
-  final List<Data> data;
+  int? page;
+  int? total;
+  List<Data>? data;
 
-  const Response({required this.page, required this.total, required this.data});
+  Response({this.page, this.total, this.data});
 
   factory Response.fromJson(Map<String, dynamic> json) {
     return Response(

@@ -45,16 +45,16 @@ class _KantorScreenState extends State<KantorScreen> {
             print("");
             return ListView.builder(
                 padding: const EdgeInsets.all(16),
-                itemCount: snapshot.data?.data.length,
+                itemCount: snapshot.data?.data?.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     leading: CircleAvatar(
                       radius: 30,
                       backgroundImage:
-                          NetworkImage(snapshot.data?.data[index].avatar ?? ""),
+                          NetworkImage(snapshot.data?.data?[index].avatar ?? ""),
                     ),
-                    title: Text("${snapshot.data!.data[index].first_name} "),
-                    subtitle: Text(snapshot.data!.data[index].email ?? ""),
+                    title: Text("${snapshot.data!.data?[index].first_name} "),
+                    subtitle: Text(snapshot.data!.data?[index].email ?? ""),
                   );
                 });
           } else {
