@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/home_screen.dart';
+import 'package:flutter_demo/identity.dart';
+import 'package:flutter_demo/shared_pref.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  SharedPref pref = SharedPref();
   int _counter = 0;
   int _testCounter = 1;
   bool _isObscure = true;
@@ -136,6 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   onPressed: () {
                     if (usernameController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+                      var iden = Identity(nama: "Sandi", alamat: "Bandung", umur: "20");
+                      pref.save("sharing", iden);
                       print("${usernameController.text} dan ${passwordController.text}");
                       Navigator.push(
                         context,

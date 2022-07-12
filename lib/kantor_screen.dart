@@ -22,8 +22,7 @@ class _KantorScreenState extends State<KantorScreen> {
   final Uri apiUrl = Uri.parse("https://reqres.in/api/users?per_page=15");
 
   Future<Response> fetchTestData() async {
-    final response = await http
-        .get(apiUrl);
+    final response = await http.get(apiUrl);
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
@@ -51,14 +50,15 @@ class _KantorScreenState extends State<KantorScreen> {
                   return ListTile(
                     leading: CircleAvatar(
                       radius: 30,
-                      backgroundImage: NetworkImage(snapshot.data!.data[index].avatar),
+                      backgroundImage:
+                          NetworkImage(snapshot.data?.data[index].avatar ?? ""),
                     ),
                     title: Text("${snapshot.data!.data[index].first_name} "),
                     subtitle: Text(snapshot.data!.data[index].email),
                   );
                 });
           } else {
-            print("ini "+snapshot.error.toString());
+            print("ini " + snapshot.error.toString());
             return const Center(child: Text("Loading"));
           }
         },

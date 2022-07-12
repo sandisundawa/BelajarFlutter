@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/shared_pref.dart';
 
 import 'detail_screen.dart';
 import 'identity.dart';
@@ -11,7 +12,7 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-
+  SharedPref pref = SharedPref();
 
   @override
   Widget build(BuildContext context) {
