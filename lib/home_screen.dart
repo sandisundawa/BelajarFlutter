@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/detail_screen.dart';
 import 'package:flutter_demo/list_screen.dart';
+import 'package:flutter_demo/mail_screen.dart';
 import 'package:flutter_demo/nav-drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final tabs = [
     const DetailScreen(),
     const ListScreen(),
-    Center(child: Text("Mail")),
+    const MailScreen(),
     Center(child: Text("Settings")),
   ];
 

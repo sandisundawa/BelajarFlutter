@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "831662182185",
+    "project_id": "agile-sprite-241304",
+    "storage_bucket": "agile-sprite-241304.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831662182185:android:2f6c4b0c79d4b42317f138",
+        "android_client_info": {
+          "package_name": "com.example.flutter_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831662182185-oore1i4das7hb3qqiurk1e3g3r1tnc4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYc6lyBtl_u7vd47cqexGyeI4tr65oMdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831662182185-oore1i4das7hb3qqiurk1e3g3r1tnc4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
