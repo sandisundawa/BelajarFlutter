@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/admin_screen.dart';
 import 'package:flutter_demo/eligiblity_screen.dart';
 import 'package:flutter_demo/kantor_screen.dart';
 
@@ -14,7 +15,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   final tabs = [
     KantorScreen(),
-    EligiblityScreen()
+    AdminScreen()
   ];
 
   @override
