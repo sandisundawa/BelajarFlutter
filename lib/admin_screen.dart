@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/chart_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -30,7 +31,12 @@ class _AdminScreenState extends State<AdminScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ChartScreen()));
+                          },
                           child: Icon(Icons.add_chart),
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(CircleBorder()),
