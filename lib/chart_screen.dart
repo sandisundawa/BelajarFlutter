@@ -11,6 +11,10 @@ class ChartScreen extends StatefulWidget {
 }
 
 class _ChartScreenState extends State<ChartScreen> {
+  int abc({int a = 1, int b = 2}) {
+    return a + b;
+  }
+
   List<_SalesData> data = [
     _SalesData('Jan', 35),
     _SalesData('Feb', 28),
@@ -41,7 +45,10 @@ class _ChartScreenState extends State<ChartScreen> {
           SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               // Chart title
-              title: ChartTitle(text: "Data Penjualan 2022"),
+              title: ChartTitle(
+                  text: "2022",
+                  textStyle: TextStyle(
+                      color: Colors.blueGrey, fontWeight: FontWeight.w700)),
               // Enable legend
               legend: Legend(isVisible: true),
               // Enable tooltip
@@ -54,7 +61,9 @@ class _ChartScreenState extends State<ChartScreen> {
                     name: 'Cost',
                     color: Colors.red,
                     // Enable data label
-                    dataLabelSettings: DataLabelSettings(isVisible: true)),
+                    dataLabelSettings: DataLabelSettings(
+                        isVisible: true,
+                        textStyle: TextStyle(color: Colors.red))),
                 LineSeries<_SalesData, String>(
                     dataSource: data2,
                     xValueMapper: (_SalesData sales, _) => sales.year,
@@ -63,9 +72,75 @@ class _ChartScreenState extends State<ChartScreen> {
                     color: Colors.green,
                     // Enable data label
                     dataLabelSettings: DataLabelSettings(
-                      isVisible: true,
-                    ))
+                        isVisible: true,
+                        textStyle: TextStyle(color: Colors.green)))
               ]),
+          SizedBox(
+            height: 16,
+          ),
+          Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(32),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.lightGreen,
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 8,),
+                  Text(
+                    "Tindakan",
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.lightGreen,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(height: 8,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            abc(a: 5, b: 5);
+                            print(abc(a: 5, b: 5).toString());
+                          },
+                          child: Text("Laporan")),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blueGrey),
+                          ),
+                          child: Text("Submit")),
+                    ],
+                  ),
+                  SizedBox(height: 8,),
+                  SizedBox(
+                    width: 200,
+                    child: Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.lightGreen,
+                          fontWeight: FontWeight.w200),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 9,)
+                ],
+              ))
         ]));
   }
 }
