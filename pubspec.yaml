@@ -41,6 +41,11 @@ dependencies:
   firebase_core: ^1.6.0
   firebase_messaging: ^10.0.7
   syncfusion_flutter_charts: ^20.2.40
+  font_awesome_flutter: ^9.0.0
+  flutter_rating_bar: ^4.0.0
+  intl: ^0.17.0
+  animations: ^2.0.0
+  getwidget: ^3.0.1
 
 dev_dependencies:
   flutter_test:

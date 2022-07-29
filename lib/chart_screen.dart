@@ -96,7 +96,9 @@ class _ChartScreenState extends State<ChartScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 8,),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text(
                     "Tindakan",
                     style: TextStyle(
@@ -104,7 +106,9 @@ class _ChartScreenState extends State<ChartScreen> {
                         color: Colors.lightGreen,
                         fontWeight: FontWeight.w400),
                   ),
-                  SizedBox(height: 8,),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -113,7 +117,9 @@ class _ChartScreenState extends State<ChartScreen> {
                             abc(a: 5, b: 5);
                             print(abc(a: 5, b: 5).toString());
                           },
-                          child: Text("Laporan")),
+                          child: Text("Laporan", style: TextStyle(
+                            fontSize: 11
+                          ),)),
                       SizedBox(
                         width: 24,
                       ),
@@ -123,10 +129,14 @@ class _ChartScreenState extends State<ChartScreen> {
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.blueGrey),
                           ),
-                          child: Text("Submit")),
+                          child: Text("Submit", style: TextStyle(
+                            fontSize: 11
+                          ),)),
                     ],
                   ),
-                  SizedBox(height: 8,),
+                  SizedBox(
+                    height: 8,
+                  ),
                   SizedBox(
                     width: 200,
                     child: Text(
@@ -138,9 +148,22 @@ class _ChartScreenState extends State<ChartScreen> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 9,)
+                  SizedBox(
+                    height: 9,
+                  )
                 ],
-              ))
+              )),
+          Expanded(child:Container()),
+          Text(
+            "Developed by Sandi",
+            style: TextStyle(
+                fontSize: 12,
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.w200),
+          ),
+          SizedBox(height: 16,)
+
+
         ]));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/Assessment_view.dart';
 import 'package:flutter_demo/chart_screen.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -66,7 +67,12 @@ class _AdminScreenState extends State<AdminScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const AssessmentView()));
+                          },
                           child: Icon(Icons.access_time_sharp),
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(CircleBorder()),
